@@ -22,7 +22,8 @@ Links to tools, study material and basic penetration testing process
       gobuster vhost -w /usr/share/seclists/Discovery/DNS/bitquark-subdomains-top100000.txt -u <FQDN> --append-domain
       
     #run ffuf to find subdomains
-      ffuf -w /root/Desktop/SecLists-master/Discovery/Web-Content/DNS/bitquark-subdomains-top100000.txt -u http://FUZZ.xyz.htb
+        ffuf -w /usr/share/seclists/Discovery/DNS/bitquark-subdomains-top100000.txt -u http://FUZZ.xyz.htb
+      
       
 <h4>Reverse shells</h4>
 
