@@ -66,4 +66,6 @@ Links to tools, study material and basic penetration testing process
   #CyberChef. Your favourite online cook
   https://gchq.github.io/CyberChef/
   
+  #process spy. See running processes with an unprivileged user
+  https://github.com/DominicBreuker/pspy
   
