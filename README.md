@@ -4,25 +4,25 @@ Links to tools, study material and basic penetration testing process
 <h4>Recon</h4>
 
     #run nmap for default TCP ports. Results to sub-folder "nmap"
-      nmap -sC -sV -oA nmap/default -v <IP>
+      sudo nmap -sC -sV -oA nmap/default -v <IP>
     
     #run nmap for ALL tcp ports. Results to sub-folder "nmap"
-      nmap -p- -sC -sV -oA nmap/allports_tcp -v <IP>
+      sudo nmap -p- -sC -sV -oA nmap/allports_tcp -v <IP>
 
     #run nmap for ALL udp ports. Results to sub-folder "nmap"
-      nmap -p- -sU -sC -sV nmap/allports_udp -v <IP>
+      sudo nmap -p- -sU -sC -sV nmap/allports_udp -v <IP>
       
     #run gobuster to brute force any subdirectories
-      gobuster dir -w /usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt -u <URL>
+      sudo gobuster dir -w /usr/share/seclists/Discovery/Web-Content/raft-medium-directories.txt -u <URL>
       
     #run gobuster to find filetypes php,bak and txt
-      gobuster dir -w /usr/share/seclists/Discovery/Web-Content/raft-medium-files.txt -x php,txt,bak -u <URL>
+      sudo gobuster dir -w /usr/share/seclists/Discovery/Web-Content/raft-medium-files.txt -x php,txt,bak -u <URL>
       
     #run gobuster to find virtual hosts under one IP
-      gobuster vhost -w /usr/share/seclists/Discovery/DNS/bitquark-subdomains-top100000.txt -u <FQDN> --append-domain
+      sudo gobuster vhost -w /usr/share/seclists/Discovery/DNS/bitquark-subdomains-top100000.txt -u <FQDN> --append-domain
       
-    #run ffuf to find subdomains
-        ffuf -w /usr/share/seclists/Discovery/DNS/bitquark-subdomains-top100000.txt -u http://FUZZ.xyz.htb
+    #run ffuf to find subdomains. Do this by fuzzing the Host-header. Drop responses with size 6359
+        sudo ffuf -w /usr/share/seclists/Discovery/DNS/bitquark-subdomains-top100000.txt -u http://interface.htb -H 'Host: FUZZ.interface.htb' -fs 6359
       
       
 <h4>Reverse shells</h4>
